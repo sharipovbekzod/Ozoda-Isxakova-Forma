@@ -99,7 +99,7 @@ body {
     outline: none
 }
 
-/* .entry-form__input::placeholder {
+.entry-form__input::placeholder {
     color: #ccc;
     opacity: 1
 }
@@ -249,7 +249,7 @@ body {
     }
 }
 /* Thank-you sahifasi: maketdagi oq panel kengligi 714px. */
-/* .thank-you-page {
+.thank-you-page {
     color: #191919;
 }
 
@@ -357,4 +357,4 @@ body {
     border-radius: 0 0 15px 15px;
     min-width: 0;
 }
-.entry-form__country:focus-visible { outline: 2px solid #d99545; outline-offset: 2px; }  */
+.entry-form__country:focus-visible { outline: 2px solid #d99545; outline-offset: 2px; }
