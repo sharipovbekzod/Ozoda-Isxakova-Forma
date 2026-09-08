@@ -95,3 +95,26 @@ Rasmlar endi tanlanganda 1200 px gacha JPEG formatida tayyorlanadi (sifat .78; 2
 3. `Deploy → Manage deployments → Edit → New version → Deploy` qiling.
 
 Lead varag‘i o‘chirilmaydi. Ikkala varaqda ham mavjud bo‘lmagan ma’lumotlarni tiklab bo‘lmaydi. Kod endi odatiy yuborishda sarlavha rangi va ustun kengliklarini qayta yozmaydi. Uchta majburiy rasm va 15 davlat qo‘llanadi. Jonli hisobda repair/deploy ushbu sessiyada bajarilmadi.
+
+## Server tezligi — oxirgi optimizatsiya
+
+Mahalliy Code.gs yo‘q bo‘lgani uchun foydalanuvchi yuborgan oxirgi server kodi asosida `apps-script/Code.gs` qayta tayyorlandi. Uning `doPost` yo‘li har safar jadval ranglari, sarlavhalar, kengliklar va raqam formatini qayta yozmaydi; varaqdagi qatorlar sonini bir marta oladi. Matn/formula himoyasi, takroriy Ariza ID, telefon bo‘yicha unikal yozish, uchta majburiy rasm va barcha ustunlar saqlangan. Bu variant tarixiy qatorlarni qayta tiklamaydi va repair funksiyasini o‘z ichiga olmaydi.
+
+Apps Script kodini yangilab, **Manage deployments → Edit → New version → Deploy** qilish shart. Mavjud Script Properties saqlansin. Eski deploymentni tahrirlasangiz /exec URL o‘zgarmaydi.
+
+`Executions` logida `timing` chiqadi: `lockMs` — navbat, `prepareMs` — tekshirish va jadvallarni ochish, `driveMs` — rasmlarni Drive ga yozish, `totalMs` — serverning umumiy vaqti. Brauzerdan Google gacha uzatish va redirect vaqti totalMs ga kirmaydi. Tezlashish jonli o‘lchanmagan, bir soniya kafolatlanmaydi.
+
+Manba: https://developers.google.com/apps-script/guides/support/best-practices
+
+## Parallel Drive upload — 2026-09-08
+
+Endi rasmlar `UrlFetchApp.fetchAll` orqali bitta guruhda yuboriladi; har bir rasmning tugashini kutib keyingisini boshlash olib tashlandi. Saqlanmagan rasm bo‘lsa muvaffaqiyat javobi berilmaydi. Muvaffaqiyatli yaratilgan fayllar ID si xato holatida tozalash uchun yig‘iladi. Butun fetchAll tarmoq xatosi bilan uzilsa, javobi olinmagan fayllar Drive da qolishi mumkin. Jonli tezlik o‘lchanmagan.
+
+O‘rnatish tartibi:
+1. Apps Script dagi Code.gs ni yangi mahalliy fayl bilan almashtiring.
+2. **Services → + → Drive API → Add**. Agar standart Google Cloud project ishlatsangiz, unda ham Google Drive API yoqilgan bo‘lsin.
+3. **checkUploadAccess → Run** qiling va so‘ralgan ruxsatlarni bering. Explicit oauthScopes ishlatilsa `https://www.googleapis.com/auth/drive`, `https://www.googleapis.com/auth/spreadsheets`, `https://www.googleapis.com/auth/script.external_request` kerak.
+4. Tekshiruv o‘tgach **Manage deployments → Edit → New version → Deploy** qiling.
+5. Saytning index.html va boshqa o‘zgargan fayllarini Vercel ga deploy qiling. index.html CSS/JS uchun yangi versiya parametrini olgan. Eski Telegram oynasini yopib, havolani qayta oching.
+
+Manbalar: https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app va https://developers.google.com/workspace/drive/api/guides/manage-uploads
