@@ -12,7 +12,7 @@ submissionClose.addEventListener('click', () => submissionModal.close());
 function showStatus(message, type = '') {
     const state = type || 'loading';
     submissionModal.dataset.state = state;
-    submissionTitle.textContent = state === 'success' ? 'Muvaffaqiyatli yuborildi!' : state === 'error' ? 'Yuborish tasdiqlanmadi' : 'Iltimos, kuting';
+    submissionTitle.textContent = state === 'success' ? 'Muvaffaqiyatli yuborildi!' : state === 'error' ? 'Yuborish tasdiqlanmadi' : 'Yuborilmoqda...';
     status.textContent = message;
     submissionClose.hidden = state !== 'error';
     if (!submissionModal.open) {
