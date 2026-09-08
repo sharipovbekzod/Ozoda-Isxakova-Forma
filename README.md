@@ -60,3 +60,38 @@ Sheets ga `+998901234567` kabi xalqaro raqam yoziladi. Ustunlar o‘zgarmaydi. *
 
 Kodlar manbasi: [ITU National Numbering Plans](https://www.itu.int/oth/T0202.aspx?parent=T0202).
 # Ozoda-Isxakova-Forma
+
+## Yangilanish: faqat birinchi 3 rasm majburiy
+
+Frontendda 1–3-rasmlar majburiy, 4–5 ixtiyoriy. `photos` massivi beshta o‘rinni saqlaydi: tanlanmagan ixtiyoriy rasm `null` bo‘ladi. Shuning uchun 4-rasmsiz 5-rasm yuklansa ham Sheets ustunlari siljimaydi.
+
+**Serverni ham yangilash kerak.** Mahalliy Code.gs hozir papkada yo‘q. Avvalgi server kodidagi `p.photos.map((photo, i) => {` qatoridan keyin quyidagini kiriting:
+
+```js
+if (photo == null) {
+  if (i < 3) throw new Error('Birinchi 3 ta rasm majburiy.');
+  return null;
+}
+```
+
+`const urls = blobs.map(blob => {` qatoridan keyin quyidagini kiriting:
+
+```js
+if (blob === null) return '';
+```
+
+`Barcha 5 ta rasm majburiy.` xabarini `Rasm maydonlari formati noto‘g‘ri.` ga almashtiring. Massiv uzunligi 5 bo‘lishi haqidagi tekshiruv saqlanadi. So‘ng yangi deployment versiyasini chiqaring. Yuqoridagi eski bo‘limlarning beshta majburiy rasm talabi ushbu yangilanish bilan almashtiriladi.
+
+
+### Yuborish hajmini kamaytirish
+Rasmlar endi tanlanganda 1200 px gacha JPEG formatida tayyorlanadi (sifat .78; 250 KB dan katta bo‘lsa .65). Bu original sifat/o‘lchamni kamaytiradi va uzatiladigan hajmni qisqartirishga qaratilgan; 250 KB qat’iy limit emas. Server tasdig‘idan keyingina thankYou.html ochiladi. Jonli tezlik o‘lchanmagan; server optimizatsiyasi uchun amaldagi Apps Script kodi kerak.
+
+## Unical Leads tuzatish — yangi to‘liq Code.gs
+
+`apps-script/Code.gs` qayta yaratildi. Uni Apps Script dagi eski kod o‘rniga to‘liq qo‘ying. Mavjud Script Properties saqlanadi; sozlanmagan bo‘lsa `initialSetup` ni bajaring.
+
+1. `repairUnicalLeads` funksiyasini bir marta Run qiling. Avval `Unical backup ...` varag‘i yaratiladi.
+2. Funksiya Lead va eski Unical Leads ma’lumotlaridan telefon bo‘yicha bitta ariza tanlaydi. Birinchi to‘liq ariza saqlanadi; eski chala qator o‘rniga mavjud to‘liq ariza olinadi. Turli arizalarning maydonlari aralashtirilmaydi. Telefon bo‘sh qatorlar faqat backupda qoladi.
+3. `Deploy → Manage deployments → Edit → New version → Deploy` qiling.
+
+Lead varag‘i o‘chirilmaydi. Ikkala varaqda ham mavjud bo‘lmagan ma’lumotlarni tiklab bo‘lmaydi. Kod endi odatiy yuborishda sarlavha rangi va ustun kengliklarini qayta yozmaydi. Uchta majburiy rasm va 15 davlat qo‘llanadi. Jonli hisobda repair/deploy ushbu sessiyada bajarilmadi.

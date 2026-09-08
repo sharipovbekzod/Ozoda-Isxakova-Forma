@@ -10,6 +10,7 @@
     <noscript>
         <link rel="stylesheet" href="./css/main.css">
     </noscript>
+    <script src="js/country-picker.js" defer></script>
 </head>
 
 <body>
@@ -28,7 +29,13 @@
             <div class="entry-form__field">
                 <label class="entry-form__label" for="phone">2. Telefon raqamingiz</label>
                 <div class="entry-form__phone">
-                    <select class="entry-form__country" name="phoneCountry" aria-label="Telefon davlat kodi" required>
+                    <button class="entry-form__country-toggle" type="button" aria-label="Davlat tanlash" aria-expanded="false" aria-controls="country-menu">
+                        <span class="entry-form__country-flag" aria-hidden="true">🇺🇿</span>
+                        <span class="entry-form__country-chevron" aria-hidden="true"></span>
+                    </button>
+                    <span class="entry-form__dial-code">+998</span>
+                    <div class="entry-form__country-menu" id="country-menu" aria-label="Davlatlar" hidden></div>
+                    <select hidden class="entry-form__country" name="phoneCountry" aria-label="Telefon davlat kodi" required>
                         <option value="UZ">O‘zbekiston (+998)</option>
                         <option value="KZ">Qozog‘iston (+7)</option>
                         <option value="KG">Qirg‘iziston (+996)</option>
@@ -61,7 +68,7 @@
                         value="Yo‘q, bora olmayman" required>Yo’q, bora olmayman</label>
             </fieldset>
             <fieldset class="entry-form__field entry-form__field--uploads">
-                <legend class="entry-form__label">5. Tikkan ko’ylaklaringizni eng zo’r 5 tasini quyida birma-bir yuklang
+                <legend class="entry-form__label">5. Tikkan ko’ylaklaringizni eng zo’r ishlaringizni quyida yuklang. Birinchi 3 ta rasm majburiy, 4- va 5-rasmlar ixtiyoriy
                 </legend>
                 <div class="entry-form__uploads">
                     <label class="entry-form__upload"><span class="entry-form__filename">1-rasmni yuklang</span><input
@@ -73,12 +80,12 @@
                     <label class="entry-form__upload"><span class="entry-form__filename">3-rasmni yuklang</span><input
                             class="entry-form__file" type="file" name="photo3" accept="image/jpeg,image/png,image/webp"
                             aria-label="3-rasmni yuklang" required></label>
-                    <label class="entry-form__upload"><span class="entry-form__filename">4-rasmni yuklang</span><input
+                    <label class="entry-form__upload"><span class="entry-form__filename">4-rasmni yuklang (ixtiyoriy)</span><input
                             class="entry-form__file" type="file" name="photo4" accept="image/jpeg,image/png,image/webp"
-                            aria-label="4-rasmni yuklang" required></label>
-                    <label class="entry-form__upload"><span class="entry-form__filename">5-rasmni yuklang</span><input
+                            aria-label="4-rasmni yuklang (ixtiyoriy)"></label>
+                    <label class="entry-form__upload"><span class="entry-form__filename">5-rasmni yuklang (ixtiyoriy)</span><input
                             class="entry-form__file" type="file" name="photo5" accept="image/jpeg,image/png,image/webp"
-                            aria-label="5-rasmni yuklang" required></label>
+                            aria-label="5-rasmni yuklang (ixtiyoriy)"></label>
                 </div>
             </fieldset>
             <fieldset class="entry-form__field entry-form__field--last">
