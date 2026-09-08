@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Ozoda Isxakova</title>
+    <link rel="preload" as="style" href="./css/main.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="./css/main.css">
+    </noscript>
+</head>
+
+<body>
+    <main class="registration">
+        <h1 class="registration__title">Ozoda Isxakova bilan <span class="registration__accent">BEPUL<br>
+                NONUSHTA</span> yutib oling!</h1>
+        <img class="registration__speaker" src="images/speaker.avif" width="390" height="375" alt="Ozoda Isxakova"
+            fetchpriority="high">
+        <h2 class="registration__heading">Ro’yxatdan o’tish uchun<br> quyidagi formani to’ldiring</h2>
+        <form class="entry-form" id="entry-form">
+            <div class="entry-form__field">
+                <label class="entry-form__label" for="full-name">1. Ism-Familiya</label>
+                <input class="entry-form__input" id="full-name" name="fullName" autocomplete="name" minlength="3"
+                    maxlength="100" required>
+            </div>
+            <div class="entry-form__field">
+                <label class="entry-form__label" for="phone">2. Telefon raqamingiz</label>
+                <div class="entry-form__phone">
+                    <select class="entry-form__country" name="phoneCountry" aria-label="Telefon davlat kodi" required>
+                        <option value="UZ">O‘zbekiston (+998)</option>
+                        <option value="KZ">Qozog‘iston (+7)</option>
+                        <option value="KG">Qirg‘iziston (+996)</option>
+                        <option value="TJ">Tojikiston (+992)</option>
+                        <option value="TM">Turkmaniston (+993)</option>
+                        <option value="AF">Afg‘oniston (+93)</option>
+                        <option value="RU">Rossiya (+7)</option>
+                        <option value="CN">Xitoy (+86)</option>
+                        <option value="PK">Pokiston (+92)</option>
+                        <option value="IR">Eron (+98)</option>
+                        <option value="AZ">Ozarbayjon (+994)</option>
+                        <option value="AM">Armaniston (+374)</option>
+                        <option value="GE">Gruziya (+995)</option>
+                        <option value="TR">Turkiya (+90)</option>
+                        <option value="IN">Hindiston (+91)</option>
+                    </select>
+                    <input class="entry-form__input entry-form__input--phone" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="90 123 45 67" maxlength="30" required>
+                </div>
+            </div>
+            <div class="entry-form__field">
+                <label class="entry-form__label" for="instagram">3. Instagram akkauntingiz</label>
+                <input class="entry-form__input" id="instagram" name="instagram" placeholder="@usarname"
+                    autocapitalize="none" spellcheck="false" maxlength="31" pattern="@?[A-Za-z0-9._]{1,30}" required>
+            </div>
+            <fieldset class="entry-form__field entry-form__field--choice">
+                <legend class="entry-form__label">4. 14-sentabr 10:00 Bosphour Nonushtaga kela olasizmi?</legend>
+                <label class="entry-form__choice"><input class="entry-form__radio" type="radio" name="attendance"
+                        value="Ha, bora olaman" required checked>Ha, bora olaman</label>
+                <label class="entry-form__choice"><input class="entry-form__radio" type="radio" name="attendance"
+                        value="Yo‘q, bora olmayman" required>Yo’q, bora olmayman</label>
+            </fieldset>
+            <fieldset class="entry-form__field entry-form__field--uploads">
+                <legend class="entry-form__label">5. Tikkan ko’ylaklaringizni eng zo’r 5 tasini quyida birma-bir yuklang
+                </legend>
+                <div class="entry-form__uploads">
+                    <label class="entry-form__upload"><span class="entry-form__filename">1-rasmni yuklang</span><input
+                            class="entry-form__file" type="file" name="photo1" accept="image/jpeg,image/png,image/webp"
+                            aria-label="1-rasmni yuklang" required></label>
+                    <label class="entry-form__upload"><span class="entry-form__filename">2-rasmni yuklang</span><input
+                            class="entry-form__file" type="file" name="photo2" accept="image/jpeg,image/png,image/webp"
+                            aria-label="2-rasmni yuklang" required></label>
+                    <label class="entry-form__upload"><span class="entry-form__filename">3-rasmni yuklang</span><input
+                            class="entry-form__file" type="file" name="photo3" accept="image/jpeg,image/png,image/webp"
+                            aria-label="3-rasmni yuklang" required></label>
+                    <label class="entry-form__upload"><span class="entry-form__filename">4-rasmni yuklang</span><input
+                            class="entry-form__file" type="file" name="photo4" accept="image/jpeg,image/png,image/webp"
+                            aria-label="4-rasmni yuklang" required></label>
+                    <label class="entry-form__upload"><span class="entry-form__filename">5-rasmni yuklang</span><input
+                            class="entry-form__file" type="file" name="photo5" accept="image/jpeg,image/png,image/webp"
+                            aria-label="5-rasmni yuklang" required></label>
+                </div>
+            </fieldset>
+            <fieldset class="entry-form__field entry-form__field--last">
+                <legend class="entry-form__label">6. Tikkan libosingizni nonushtaga olib kela olasizmi?</legend>
+                <label class="entry-form__choice"><input class="entry-form__radio" type="radio" name="bringDress"
+                        value="Ha, olib boraman" required checked>Ha, olib boraman</label>
+                <label class="entry-form__choice"><input class="entry-form__radio" type="radio" name="bringDress"
+                        value="Yo‘q, olib borolmayman" required>Yo’q, olib borolmayman</label>
+            </fieldset>
+            <button class="entry-form__submit" type="submit"><img class="entry-form__submit-image" src="images/btn.avif"
+                    alt="Ro‘yxatdan o‘tish"></button>
+            <div class="entry-form__free">BEPUL<img class="entry-form__arrow" src="images/arrow.svg" width="50"
+                    height="34" alt=""></div>
+            <p class="entry-form__status" id="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+    </main>
+
+    <script src="js/config.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

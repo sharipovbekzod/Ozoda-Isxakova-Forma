@@ -1,0 +1,360 @@
+* {
+    box-sizing: border-box
+}
+
+@font-face {
+    font-family: Bebas Neue;
+    src: url(/font/BebasNeue-Regular.subset-AZa-z-0-9-punct-percent.woff2);
+    font-display: swap;
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: #555;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 400
+}
+
+.registration {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding-top: 24px;
+    padding-bottom: 66px;
+}
+
+.registration__title {
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(33px, 9.6vw, 40px);
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #080808;
+    letter-spacing: -.65px
+}
+
+.registration__accent {
+    color: #ee9834
+}
+
+.registration__speaker {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 390/375;
+    object-fit: cover;
+    border: 2px solid #e7ad69;
+    border-radius: 25px
+}
+
+.registration__heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    color: #252525;
+    margin: 29px -8px 29px;
+    letter-spacing: -.45px
+}
+
+.entry-form {
+    max-width: 390px;
+    width: 100%;
+    margin: 0 auto;
+
+    padding: 29px 15px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 25px #00000024
+}
+
+.entry-form__field {
+    border: 0;
+    padding: 0;
+    margin: 0 0 38px;
+    min-width: 0
+}
+
+.entry-form__label {
+    display: block;
+    margin: 0 5px 15px;
+    line-height: 1.6;
+    font-size: clamp(15px, 5vw, 18px);
+    padding: 0
+}
+
+.entry-form__input {
+    width: 100%;
+    height: 62px;
+    border: 1px solid #edaf70;
+    border-radius: 15px;
+    padding: 0 18px;
+    color: #555;
+    background: #fff;
+    font: inherit;
+    outline: none
+}
+
+.entry-form__input::placeholder {
+    color: #ccc;
+    opacity: 1
+}
+
+.entry-form__input:focus,
+.entry-form__upload:focus-within {
+    outline: 2px solid #d99545;
+    outline-offset: 3px
+}
+
+.entry-form__choice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #737373
+}
+
+.entry-form__radio {
+    appearance: none;
+    flex: 0 0 21px;
+    width: 21px;
+    height: 21px;
+    margin: 0;
+    border: 1px solid #eab074;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer
+}
+
+.entry-form__radio:checked {
+    background: #e5ae70;
+    box-shadow: inset 0 0 0 3px #fff
+}
+
+.entry-form__field--choice {
+    margin-bottom: 37px
+}
+
+.entry-form__uploads {
+    display: grid;
+    gap: 14px
+}
+
+.entry-form__upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 62px;
+    padding: 14px 18px;
+    border: 1px solid #edaf70;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    color: #ccc
+}
+
+.entry-form__file {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer
+}
+
+.entry-form__filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%
+}
+
+.entry-form__upload--selected {
+    color: #647348;
+    background: #fafbf6
+}
+
+.entry-form__field--uploads {
+    margin-bottom: 38px
+}
+
+.entry-form__field--last {
+    margin-bottom: 41px
+}
+
+.entry-form__submit {
+    display: block;
+    width: calc(100% - -5px);
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer
+}
+
+.entry-form__submit-image {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.entry-form__submit:disabled {
+    opacity: .6;
+    cursor: wait
+}
+
+.entry-form__free {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 14px;
+    font: 400 32px/1.3 'Bebas Neue', sans-serif;
+    color: #676767
+}
+
+.entry-form__arrow {
+    position: absolute;
+    left: calc(50% + 46px);
+    bottom: 12px
+}
+
+.entry-form__status {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 18px 5px 0;
+    overflow-wrap: anywhere
+}
+
+.entry-form__status--error {
+    color: #b32e25
+}
+
+.entry-form__status--success {
+    color: #32733c
+}
+
+@media(max-width:400px) {
+    .registration {
+        padding: 32px 18px 45px
+    }
+
+    .entry-form {
+        padding-inline: 13px
+    }
+}
+/* Thank-you sahifasi: maketdagi oq panel kengligi 714px. */
+.thank-you-page {
+    color: #191919;
+}
+
+.thank-you {
+    width: 100%;
+    max-width: 714px;
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: 100px 52px 176px;
+    background: #fff;
+    text-align: center;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.thank-you__tick {
+    display: block;
+    width: 60px;
+    height: 68px;
+    object-fit: contain;
+    margin: 0 auto 44px;
+}
+
+.thank-you__title {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.27;
+    letter-spacing: -1.2px;
+}
+
+.thank-you__description {
+    margin: 40px -10px 0;
+    font-size: 30px;
+    line-height: 1.5;
+    letter-spacing: -.6px;
+}
+
+.thank-you__arrow {
+    display: block;
+    width: 30px;
+    height: 108px;
+    margin: 58px auto 46px;
+}
+
+.thank-you__subscribe {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 126px;
+    border-radius: 100px;
+    background: linear-gradient(100deg, #00a3d8, #25b0ed 52%, #00a1d9);
+    box-shadow: 0 8px 0 #1a6382;
+    color: #fff;
+    text-decoration: none;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.7px;
+}
+
+.thank-you__subscribe[href] { cursor: pointer; }
+.thank-you__subscribe:focus-visible { outline: 3px solid #1a6382; outline-offset: 12px; }
+.thank-you__telegram {
+    position: absolute;
+    right: 76px;
+    width: 48px;
+    height: 48px;
+}
+
+@media (max-width: 713px) {
+    .thank-you { padding: 14vw 7.3vw 24.6vw; }
+    .thank-you__tick { width: 8.4vw; height: 9.5vw; margin-bottom: 6.2vw; }
+    .thank-you__title { font-size: 6.72vw; letter-spacing: -.168vw; }
+    .thank-you__description { margin-top: 5.6vw; font-size: 4.2vw; letter-spacing: -.084vw; }
+    .thank-you__arrow { width: 4.2vw; height: 15.1vw; margin: 8.1vw auto 6.45vw; }
+    .thank-you__subscribe { min-height: 17.65vw; font-size: 5.32vw; letter-spacing: -.098vw; box-shadow: 0 1.12vw 0 #1a6382; }
+    .thank-you__telegram { right: 10.64vw; width: 6.72vw; height: 6.72vw; }
+}
+
+.entry-form__phone {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #edaf70;
+    border-radius: 15px;
+    background: #fff;
+}
+.entry-form__country {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 0;
+    border-bottom: 1px solid #f2dcc5;
+    border-radius: 15px 15px 0 0;
+    background: #fffaf4;
+    color: #555;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+}
+.entry-form__input--phone {
+    border: 0;
+    height: 58px;
+    border-radius: 0 0 15px 15px;
+    min-width: 0;
+}
+.entry-form__country:focus-visible { outline: 2px solid #d99545; outline-offset: 2px; }
